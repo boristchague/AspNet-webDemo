@@ -1,0 +1,33 @@
+﻿@model webDemo.Models.Produit
+@{
+
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Formulaire d'ajout de Produit </h2>
+
+    <form name="addProduit" method="post">
+
+        @Html.LabelFor(model => model.references)
+        @Html.EditorFor(model => model.references)
+       
+
+        <label name="description"> Description </label>
+        <input type="text" name="description" /> <br />
+
+        <label name="prix"> prix </label>
+        <input type="text" name="prix" /> <br />
+
+
+        <input type="submit" value="ADD" />
+    </form>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "index")
+</div>

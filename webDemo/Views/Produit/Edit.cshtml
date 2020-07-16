@@ -1,0 +1,45 @@
+﻿@model webDemo.Models.Produit
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <h4> Produit </h4>
+        <hr />
+
+        @*@Html.Hidden(model => model.id)*@
+
+        <div>
+            @Html.LabelFor(model => model.references)
+            @Html.EditorFor(model => model.references)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.description)
+            @Html.EditorFor(model => model.description)
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.prix)
+            @Html.EditorFor(model => model.prix)
+        </div>
+
+        <div class="form-group">
+            <div>
+                <input type="submit" value="Save" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "index")
+</div>
+

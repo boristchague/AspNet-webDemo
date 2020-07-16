@@ -1,0 +1,59 @@
+﻿@{
+    if (IsPost)
+    {
+        string prenom = Request.Form["prenom"];
+        string email = Request.Form["email"];
+        string address = Request.Form["address"];
+        string cp = Request.Form["cp"];
+        string ville = Request.Form["ville"];
+
+        <text>
+            You entered:
+            <br />
+            Company Name: @prenom
+            <br />
+            Contact Name: @email
+            <br />
+            Address: @address
+            <br />
+            Cp : @cp
+            <br />
+            Ville : @ville
+            <br />
+        </text>
+    }
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <h2>Formulaire d'ajout de Client </h2>
+
+    <form name="addClient" method="post">
+
+        <label name="prenom"> Prenom </label>
+        <input type="text" name="prenom" /> <br />
+
+        <label name="nom"> Nom </label>
+        <input type="text" name="nom" /> <br />
+
+        <label name="email"> Email </label>
+        <input type="email" name="email" /> <br />
+
+        <label name="address"> Address </label>
+        <input type="text" name="address" /> <br />
+
+        <label name="cp"> Code postal </label>
+        <input type="text" name="cp" />  <br />
+
+        <label name="ville"> Ville </label>
+        <input type="text" name="ville" /> <br />
+
+        <input type="submit" value="ADD" />
+    </form>
+
+}
+
+<div>
+    @Html.ActionLink("Back to List", "index")
+</div>
